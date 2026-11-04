@@ -131,7 +131,7 @@ body.modoCartaz #app,body.modoCartaz #barraEdit,body.modoCartaz #aviso{display:n
 body.modoCartaz{background:#fff;overflow:auto;position:static;height:auto}
 body.modoCartaz #cartaz{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100dvh;padding:16px 20px;text-align:center;color:var(--azul);font-family:var(--fonte);box-sizing:border-box}
 #cartaz .brasao{height:clamp(90px,16vh,200px);width:auto}
-#splash{position:fixed;inset:0;z-index:95;background:var(--creme,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;box-sizing:border-box;transition:opacity .8s ease}
+#splash{position:fixed;inset:0;z-index:95;background:var(--creme,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;box-sizing:border-box;transition:opacity 1s ease}
 #splash img{width:min(62vw,300px);height:auto;animation:splashEntra 1s ease both}
 #splash .frase{margin:0;font-family:var(--fonte);font-weight:600;font-size:clamp(15px,4.2vw,20px);letter-spacing:.02em;color:var(--azul);text-align:center;animation:splashEntra .9s ease .35s both}
 #splash.sumindo{opacity:0;pointer-events:none}
@@ -2599,7 +2599,7 @@ function htmlPopup(p){
 }
 
 // splash: brasão com fade antes do mapa aparecer
-const SPLASH_MIN_MS = 900;
+const SPLASH_MIN_MS = 1600;
 const splashInicio = Date.now();
 let splashFeito = false;
 function esconderSplash(){
