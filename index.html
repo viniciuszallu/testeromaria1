@@ -13,8 +13,8 @@
 <meta property="og:site_name" content="83ª Romaria Estadual da Medianeira">
 <meta property="og:title" content="Mapa do Parque — 83ª Romaria da Medianeira">
 <meta property="og:description" content="Banheiros, alimentação, doces, ambulâncias, Altar Monumento e Espaço Kids. 7 e 8 de novembro de 2026, Parque da Medianeira, Santa Maria/RS.">
-<meta property="og:url" content="https://viniciuszallu.github.io/testeromaria1/">
-<meta property="og:image" content="https://viniciuszallu.github.io/testeromaria1/capa.png">
+<meta property="og:url" content="https://mapadaromaria.github.io/">
+<meta property="og:image" content="https://mapadaromaria.github.io/capa.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="pt_BR">
@@ -56,8 +56,8 @@
 
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;font-family:var(--fonte);background:var(--cor-fundo);color:var(--cor-painel-texto)}
-html:not(.modoCartaz),body:not(.modoCartaz){overflow:hidden;overscroll-behavior:none}
-body:not(.modoCartaz){position:fixed;inset:0;width:100%;height:100%;height:100dvh}
+html,body{overflow:hidden;overscroll-behavior:none}
+body{position:fixed;inset:0;width:100%;height:100%;height:100dvh}
 #app{display:flex;flex-direction:column;height:100%;overflow:hidden}
 header{background:var(--cor-fundo);color:var(--cor-texto);padding:10px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;border-bottom:3px solid var(--dourado)}
 header .logo{height:64px;width:auto;flex:0 0 auto}
@@ -125,7 +125,7 @@ body.totem .leaflet-popup-content{font-size:18px}
 .pop .hor{margin-top:6px;font-weight:600;color:var(--azul)}
 .pop .btnRota{display:inline-block;margin-top:8px;background:var(--azul);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:7px 12px;border-radius:7px}
 #btnZap img{width:22px;height:22px;display:block}
-#btnInsta{display:inline-flex;align-items:center;gap:5px;text-decoration:none;border:1.5px solid var(--azul);background:#fff;color:var(--azul);font-family:var(--fonte);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;white-space:nowrap}
+#btnInsta{display:inline-flex;align-items:center;gap:5px;text-decoration:none;border:0;background:linear-gradient(45deg,#f9ce34 0%,#ee2a7b 45%,#6228d7 100%);color:#fff;font-family:var(--fonte);font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;white-space:nowrap}
 #btnInsta svg{flex:0 0 auto}
 #btnQR{display:inline-flex;align-items:center;gap:4px;border:1.5px solid var(--azul);background:#fff;color:var(--azul);font-family:var(--fonte);font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
 #qrModal{display:none;position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px}
@@ -137,28 +137,12 @@ body.totem .leaflet-popup-content{font-size:18px}
 .qrUrl{font-size:12px;color:var(--texto-suave);word-break:break-all;margin:8px 0 12px}
 .qrAcoes{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .qrAcoes a{background:var(--azul);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:8px 12px;border-radius:7px}
-.qrAcoes a#qrCartaz{background:transparent;color:var(--azul);border:1.5px solid var(--azul)}
-#cartaz{display:none}
-body.modoCartaz #app,body.modoCartaz #barraEdit,body.modoCartaz #aviso{display:none}
-body.modoCartaz{background:#fff;overflow:auto;position:static;height:auto}
-body.modoCartaz #cartaz{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100dvh;padding:16px 20px;text-align:center;color:var(--azul);font-family:var(--fonte);box-sizing:border-box}
-#cartaz .brasao{height:clamp(90px,16vh,200px);width:auto}
 #splash{position:fixed;inset:0;z-index:95;background:var(--creme,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;box-sizing:border-box;transition:opacity 1s ease}
 #splash img{width:min(62vw,300px);height:auto;animation:splashEntra 1s ease both}
 #splash .frase{margin:0;font-family:var(--fonte);font-weight:600;font-size:clamp(15px,4.2vw,20px);letter-spacing:.02em;color:var(--azul);text-align:center;animation:splashEntra .9s ease .35s both}
 #splash.sumindo{opacity:0;pointer-events:none}
 @keyframes splashEntra{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){#splash img{animation:none}#splash{transition:opacity .2s linear}}
-body.modoCartaz #splash{display:none}
-#cartaz h1{font-size:clamp(17px,4.6vw,34px);font-weight:800;text-transform:uppercase;margin:8px 0 2px;line-height:1.1}
-#cartaz h1 span{color:var(--dourado)}
-#cartaz .sub{margin:0;color:var(--texto-suave);font-weight:600;font-size:clamp(12px,3vw,18px)}
-#cartaz h2{font-size:clamp(20px,5vw,30px);margin:12px 0 2px;font-weight:800}
-#cartaz .instr{margin:0 0 10px;font-size:clamp(13px,3.2vw,18px);color:var(--texto)}
-#qrCartazAlvo canvas,#qrCartazAlvo img{width:min(72vw,42vh,420px);height:auto;image-rendering:pixelated;border:8px solid #fff;outline:3px solid var(--dourado)}
-#cartaz .url{font-size:clamp(13px,3.4vw,20px);font-weight:700;margin:12px 0 0;word-break:break-all}
-#cartaz .rod{color:var(--texto-suave);font-size:clamp(11px,2.6vw,15px);margin-top:10px}
-@media print{ body.modoCartaz #cartaz{min-height:auto;padding:10mm} #cartaz .brasao{height:200px} #cartaz h2{font-size:28px} #qrCartazAlvo canvas{width:120mm} #cartaz .url{font-size:20px} @page{size:A4 portrait;margin:12mm} }
 #msgErro{display:none;position:absolute;inset:0;z-index:5;align-items:center;justify-content:center;background:var(--creme);color:var(--azul);font-weight:600;text-align:center;padding:20px}
 .soCel{display:none}
 @media (max-width:760px){
@@ -168,7 +152,10 @@ body.modoCartaz #splash{display:none}
   header h1{font-size:11px;line-height:1.15;flex:1;min-width:0;white-space:normal;letter-spacing:0}
   header h1 .n{font-size:13px}
   header small{display:none}
-  #btnZap,#btnQR,#btnInsta{order:0;padding:6px 10px;font-size:12px}
+  #btnZap,#btnQR,#btnInsta{order:0;padding:7px 10px;font-size:12px}
+  #acoes{margin:0 0 0 auto;gap:6px}
+  #btnQR .rotuloBtn,#btnInsta .rotuloBtn{display:none}
+  #btnQR,#btnInsta{padding:7px 11px}
   #filtros{margin-left:0;width:100%;flex-wrap:nowrap;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   #filtros::-webkit-scrollbar{display:none}
   #filtros button{flex:0 0 auto;font-size:13px;padding:6px 11px}
@@ -190,7 +177,7 @@ body.modoCartaz #splash{display:none}
     <img class="logo" alt="83ª Romaria Estadual da Medianeira" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWMAAACgCAMAAADuF/19AAABIFBMVEUlVXwybKdObZdhjsLv0nnn38pEX3e8fB6+gR6Vu+P64Z6ofkS0m3uew+bfsT/On2DProD49u4ERIr09u/nuFD+8tHIiSrTlzLtwlX668nipzkORHrXp0z55LXW5/HcozjpxXHoyYvx2qopWInw1ZPatm7I2unku2p1lrWwxtfLmUtPdZrcs1I3ZJFniatQeKSLqcbkq0QHPXi7hTDk7O8CPoWYtM9FapPTqmgbUoukus670+dagqqKpLqwyuTXuIblsj3L1topU3p0msWDnbfcw47hnTUiTHjd8PpqhJt7osndwnE2a6O70t3ozKS3ikbFgx7jvYQhTIPBy9NcgJ19oLuntLw+cZmCnsKdsbu2fSm7kkrAfiPBjUdifJzaya7rml+ZAAAAYHRSTlP//////////////////////wD///////////////////////////////////////////////////////////////////////////////////////////////////////8zptTiAAAbfElEQVR42u2dB0PjSLKAuRxeuGdLwrQVrCxZzsYZ2wxpJ8/sbLoNt3f//1+8qg5SyxgwC9YwM+pZWJKN+VSqrtwHWrn2vQ4q5dr3KhmXjEvG5SoZl4x3XFrJeN/LidyS8X4XmdVOtZLxvhkHJeP9IjaNw5mpaSXjfQH+v9nMqNWSWRA4Wsl4L8tNDpNarXaYJElASsZ7guw4jnFoOI7rlrpij/rCKPe8kvHnwbj0Qfa5FLCPB6Uc792Xtktfes9LiwynZLxn861WM8yS8V5XVEtqTsl4D8bEVaqDA3D0UsauXzJ+rPXu/Qx9Z+K6JELG+AF+HrXNkvEjrdOfj99hWPMwmTlJzfADw3AAsjuouyXjx2L8r59BP7jvISSktmuq2hg0DKDr1wcl48dSx+7hsR0E/vuZ6Rpq3QhcMwhc27ENtdQVj4AXVAI5nSXHSfKr41xpmhMNbFNRriAAB7hVB3UG/lDJ+Dev//y3W3H/69fDY8M9dTWiKG7QDlxF0TTX8Qe1gQq7nntllowfshKIFs9M5zjQNAUXcaJ3hH6kaVeGa165rm1rJeMHhSeOf3lHNJLMEPEIGAeGoyFgeAsiTSNuFJilPn5g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">
     <h1 class="visualmenteOculto">83ª Romaria Estadual da Medianeira</h1><small class="sub">7 e 8 de novembro de 2026 · Parque da Medianeira · Av. Medianeira, 631 · Santa Maria/RS</small>
     <div id="acoes"><a id="btnZap" href="#" target="_blank" rel="noopener" title="Enviar o mapa pelo WhatsApp"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAwFBMVEVLrk8AAAD5+vlQtFRou2yt2K/N5s5ju2dovGyn061cuGBrvW+MyY90wnh1wHiKyY39/f12wXuHyItrvHB4wX3Q5dBYt1txwHWRx5SEx4i83bzL2Mvj4+xUtVheuGJ5wX19xIF8w4F+xIGb0Z3z1/N/v39/wIJ/0IuKyZSZzKGaz6Sa1J+gz6al0qi/18S+4b+/5czMzLLE3sTQ5Nbg7+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACbEuv+AAAAQHRSTlP/AP/9+v//zrcs8ZVMsv//CJhmdnIP1c0thxETCbPYXnOb//8JJFoWGB4wMFFENP8UCicm/wAAAAAAAAAAAAAAkETfzAAAAa1JREFUeNp91ee2gyAMAGA0qYqrju5xO+/e4/2f7SKBCi3IL8/hKyaGpCww109eJ5gCAMZFw60t1j9W7zUKw+QSD2mWVy7Ii4u62OL1Bq4mqc2UnWxsyBMHkzJbmZDHTibp/LeHA66Taw2/kwEnZLZRMCMHiO4fwJ5gTnlgFIafbggvHVzTi0G4MCzdsjgLqA4cdS4cecLMBVQHhrRSTz4B4ypCBU9uiJxNKNNSwciT+AMraEefGHmCrJkqio4RPTBmeoeyHvvKg0zHhEMHmpCOHHkL3kMqje/daQ/VFyp9rzaiGlthAtpZm3fWzFxEEpXGtWAHsxTqZqB+jI66e5csNyGQFHRslRRgwdZ3VnWV7BdSiBXTjWBn1C86cSLu4+KqozEynawAzB4FrOrrm1X2VIXYyubidzd3EEfS/p3IxStqV1dbAx7HpbqBomMknM4G+198w8Dqa/+gqBRsh5wYZ1M1pM6ya8A39pYbPfYW3cyGNIlvKUCc9xO3AZhnzUcwbWfWsd3Ib7+M0fzW3FMUwVOTyNOB0Tv2z+5/he6Pge8OyTbGbVLveGVt/QNl8hD9MTMpIQAAAABJRU5ErkJggg==" alt=""> Enviar</a>
-    <a id="btnInsta" href="https://www.instagram.com/santuariomedianeira/" target="_blank" rel="noopener" title="Instagram do Santuário da Medianeira" aria-label="Instagram do Santuário da Medianeira"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg> Instagram</a><button id="btnQR" title="Mostrar QR Code do mapa">▦ QR Code</button></div>
+    <a id="btnInsta" href="https://www.instagram.com/santuariomedianeira/" target="_blank" rel="noopener" title="Instagram do Santuário da Medianeira" aria-label="Instagram do Santuário da Medianeira"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg><span class="rotuloBtn"> Instagram</span></a><button id="btnQR" title="Mostrar QR Code do mapa">▦<span class="rotuloBtn"> QR Code</span></button></div>
     <div id="filtros"></div>
   </header>
   <div id="corpo">
@@ -205,8 +192,7 @@ body.modoCartaz #splash{display:none}
   <span id="msgCopia"></span>
 </div>
 <div id="aviso"></div>
-<div id="qrModal"><div class="qrBox"><button class="fechar" aria-label="Fechar">×</button><h2>Escaneie para abrir o mapa</h2><div id="qrAlvo"></div><div class="qrUrl" id="qrUrl"></div><div class="qrAcoes"><a id="qrBaixar" download="qr-mapa-romaria.png">Baixar PNG</a><a id="qrCartaz" href="?qr" target="_blank">Cartaz para imprimir</a></div></div></div>
-<div id="cartaz"><img class="brasao" alt="83ª Romaria Estadual da Medianeira" src=""><p class="sub">7 e 8 de novembro de 2026 · Parque da Medianeira</p><h2>Mapa do Parque</h2><p class="instr">Aponte a câmera do celular para o código</p><div id="qrCartazAlvo"></div><p class="url" id="cartazUrl"></p><p class="rod">Banheiros · Alimentação · Doces · Ambulâncias · Altar Monumento · Espaço Kids</p></div>
+<div id="qrModal"><div class="qrBox"><button class="fechar" aria-label="Fechar">×</button><h2>Escaneie para abrir o mapa</h2><div id="qrAlvo"></div><div class="qrUrl" id="qrUrl"></div><div class="qrAcoes"><a id="qrBaixar" download="qr-mapa-romaria.png">Baixar PNG</a></div></div></div>
 
 <script>/* qrcode-generator 2.0.4 (MIT, Kazuhiko Arase) — inline */
 //---------------------------------------------------------------------
@@ -2584,15 +2570,6 @@ function desenharQR(alvo, texto, escala){
   for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) cx.fillRect((c + margem) * escala, (r + margem) * escala, escala, escala);
   alvo.innerHTML = ""; alvo.appendChild(cv); return cv;
 }
-if (params.has("qr")) {
-  document.body.classList.add("modoCartaz"); document.documentElement.classList.add("modoCartaz");
-  const url = location.origin + location.pathname;
-  desenharQR(document.getElementById("qrCartazAlvo"), url, 12);
-  document.getElementById("cartazUrl").textContent = url.replace(/^https?:\/\//, "");
-  const _logo = document.querySelector("header .logo"), _bras = document.querySelector("#cartaz .brasao");
-  if (_logo && _bras) _bras.src = _logo.src;
-  throw new Error("modo cartaz");   // não carrega o mapa nesta página
-}
 document.getElementById("btnQR").onclick = () => {
   const url = location.origin + location.pathname;
   const cv = desenharQR(document.getElementById("qrAlvo"), url, 10);
@@ -2631,8 +2608,6 @@ function esconderSplash(){
 (function(){
   const img = document.querySelector("#splash img"), logo = document.querySelector("header .logo");
   if (img && logo) img.src = logo.src;
-  const brasao = document.querySelector("#cartaz .brasao");
-  if (brasao && logo) brasao.src = logo.src;
   setTimeout(esconderSplash, 6000);   // rede ruim: não deixa a tela presa
 })();
 
