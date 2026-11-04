@@ -2793,7 +2793,7 @@ function montarLista(){
   elLista.innerHTML = "";
   PONTOS.filter(p => filtroAtual === "todos" || p.cat === filtroAtual).forEach(p => {
     const d = document.createElement("div"); d.className = "item"; d.dataset.n = p.n;
-    d.innerHTML = `<div class="num" style="background:${corCat(p.cat)}">${p.n}</div><div><div class="nome">${p.nome}</div><div class="cat">${CATS[p.cat].nome}</div></div>`;
+    d.innerHTML = `<div class="num" style="background:${corCat(p.cat)}">${p.num||p.n}</div><div><div class="nome">${p.nome}</div><div class="cat">${CATS[p.cat].nome}</div></div>`;
     d.onclick = () => { document.body.classList.remove("listaAberta"); arrastou = false; mapa.panTo({lat:p.lat,lng:p.lng}); if (mapa.getZoom() < 18) mapa.setZoom(18); abrir(p); };
     elLista.appendChild(d);
   });
